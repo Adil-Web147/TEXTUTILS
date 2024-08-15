@@ -1,17 +1,17 @@
-
+import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import Alert from './components/Alert';
-import About from './components/About';
+// import About from './components/About';
 import React, { useState } from 'react';
 
-import {
-  BrowserRouter as Router,
-  Routes, // Use Routes instead of Switch
-  Route
-} from "react-router-dom";
-
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 function App() {
 
@@ -46,17 +46,23 @@ function App() {
 
   return (
     <>
-       <Router>
-        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-        <Alert alert={alert} />
-        <div className="container my-3">
-          <Routes> {/* Replace Switch with Routes */}
-            <Route exact path="/about" element={<About />} /> {/* Use element prop */}
-            <Route exact path="/" element={<Textform showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
-          </Routes>
-        </div>
-      </Router>
-    
+     {/* <Router> */}
+      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+      <Alert alert={alert}/>
+      <div className="container my-3">
+      {/* <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/"> */}
+          <Textform showAlert={showAlert} heading="Enter the text to analyze"  mode={mode} />
+           
+          {/* </Route> */}
+        {/* </Switch> */}
+      
+        {/* <About/> */}
+      </div>
+      {/* </Router> */}
     </>
   );
 }
